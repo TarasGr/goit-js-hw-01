@@ -1,3 +1,4 @@
+'use strict';
 /*Задание 3
 
 Напиши скрипт имитирующий авторизацию администратора в панели управления.
@@ -16,7 +17,7 @@ const ADMIN_PASSWORD = 'jqueryismyjam';
 let message;
 const password = prompt('Введите пароль.');
 
-if (!password) {
+if (password === null) {
     message = 'Отменено пользователем!';
 } else if (ADMIN_PASSWORD === password.toLowerCase()) {
     message = 'Добро пожаловать!';

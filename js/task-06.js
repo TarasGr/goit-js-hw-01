@@ -1,3 +1,4 @@
+'use strict';
 /*Задание 6
 
 Напиши скрипт который просит посетителя ввести число в prompt до тех пор, 
@@ -19,15 +20,24 @@ let total = 0;
 
 while (true) {
     input = prompt('Введите число');
-    if (isNaN(input)) {
-        alert('Было введено не число, попробуйте еще раз');
-    } else {
-        total += Number(input);
-    }
 
-    if (!input) {
-        console.log(total);
+    if (input === null) {
+        console.log('Отменено пользователем!');
         break;
     }
+    if (input === '') {
+        alert('Вы не ввели число, попробуйте еще раз!');
+        continue;
+    }
+
+    input = Number(input);
+    const notANumber = Number.isNaN(input);
+
+    if (notANumber) {
+        alert('Было введено не число, попробуйте еще раз!');
+        continue;
+    }
+
+    total += input;
 }
-console.log(input);
+console.log(`Общая сумма: ${total}`);

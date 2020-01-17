@@ -1,3 +1,4 @@
+'use strict';
 /*Задание 5
 
 Пользователь может оформить доставку товара к себе в страну, указав ее при посещении страницы в prompt.
@@ -19,7 +20,7 @@
 let priceDelivery;
 const country = prompt('В какую страну оформить доставку?');
 
-if (!country) {
+if (country === null) {
     console.log('Отменено пользователем!');
 } else {
     switch (country.toLowerCase()) {
@@ -45,7 +46,6 @@ if (!country) {
 
         default:
             priceDelivery = false;
-            break
     }
     if (!priceDelivery) {
         alert('В вашей стране доставка не доступна')

@@ -1,3 +1,4 @@
+'use strict';
 /*Задание 4
 
 На счету пользователя есть 23580 кредитов, значение хранится в переменной credits (создай и присвой). 
@@ -22,9 +23,11 @@ const amountDroit = prompt('Введите кол-во дроидов котор
 let totalPrice;
 let leftCredits;
 
-if (!amountDroit) {
+if (amountDroit === null) {
     message = 'Отменено пользователем!';
-} else if (!isNaN(amountDroit)) {
+} else if (amountDroit === '') {
+    message = 'Вы забили ввести кол-во!';
+} else if (!Number.isNaN(Number(amountDroit))) {
     totalPrice = pricePerDroid * Number(amountDroit);
     if (totalPrice > credits) {
         message = 'Недостаточно средств на счету!';
